@@ -2,33 +2,19 @@ func sherlockAndAnagrams(s: String) -> Int {
     var dict: [Mapper: Int] = [:]
     var str = s
     while str != "" {
-        var temp: String = ""
+        // var temp: String = ""
+        var key: [String: Int] = []
         for ch in str {
-            temp += "\(ch)"
-            // print("temp = \(temp)")
-            // if let key = checkAnagram(for: temp, in: dict) {
-            //     // print("key = \(key)")
-            //     dict[key] = (dict[key] ?? 0) + 1
-            //     // print("dict = \(dict)")
-            // } else {
-            //     dict[temp] = (dict[temp] ?? 0) + 1
-            //     // print("dict = \(dict)")
-            // } 
-
-            let key = getComposition(of: temp)
+            // temp += "\(ch)"
+            key["\(ch)"] = (key["\(ch)"] ?? 0) + 1
             let map = Mapper(key)
-            print("map = \(map)")
             dict[map] = (dict[map] ?? 0) + 1
-            print(dict)
-            print("*******")
-           
         }
         str = String(str.dropFirst())
     }
     var count = 0
  
     for obj in dict {
-        print(obj.key.dict)
         if obj.value > 1 {
             count += factorial(obj.value)/(factorial(2) *  factorial(obj.value - 2))
         }
@@ -36,22 +22,7 @@ func sherlockAndAnagrams(s: String) -> Int {
 return count
 }
 
-func checkAnagram(for s: String, in dict: [String: Int]) -> String? {
-    let sDict = getComposition(of: s)
-    for obj in dict {
-        if getComposition(of: obj.key) == sDict {
-            return obj.key
-        }
-    }
-    return nil
-}
-func getComposition(of str: String) -> [String: Int] {
-    var sDict: [String: Int] = [:]
-    for ch in str {
-     sDict["\(ch)"] = (sDict["\(ch)"] ?? 0) + 1
-    }
-    return sDict
-}
+
 func factorial(_ n: Int) -> Int {
   guard n > 0 else {return 1}
   return (1...n).reduce(1, *)
@@ -90,3 +61,20 @@ struct Mapper: Equatable, Hashable {
 }
 
 print(sherlockAndAnagrams(s: "kkkk"))
+
+func checkAnagram(for s: String, in dict: [String: Int]) -> String? {
+    let sDict = getComposition(of: s)
+    for obj in dict {
+        if getComposition(of: obj.key) == sDict {
+            return obj.key
+        }
+    }
+    return nil
+}
+func getComposition(of str: String) -> [String: Int] {
+    var sDict: [String: Int] = [:]
+    for ch in str {
+     sDict["\(ch)"] = (sDict["\(ch)"] ?? 0) + 1
+    }
+    return sDict
+}
