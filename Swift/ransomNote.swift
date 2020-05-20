@@ -68,5 +68,9 @@ func checkMagazine(magazine: [String], note: [String]) -> Void {
             notFound = true
         }
     }
-
+        if notFound {
+        print("No")
+    } else {
+        print("Yes")
+    }
 }
