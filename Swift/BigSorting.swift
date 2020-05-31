@@ -4,7 +4,4 @@ var dict: [Int: [String]] = [:]
 for val in unsorted {
     dict[val] = []
 } 
-
-
-
 }
