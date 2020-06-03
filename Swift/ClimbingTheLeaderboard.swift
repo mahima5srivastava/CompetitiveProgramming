@@ -10,6 +10,7 @@ for score in scores  {
     if prevScore != score {
         scoreArr.append(score)
         prevScore = score
+        
     }
 }
 scoreArr = Array(scoreArr.reversed())
