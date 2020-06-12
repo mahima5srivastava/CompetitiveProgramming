@@ -26,3 +26,5 @@ for val in arr {
 return max
 }
 print(arrayManipulation(n: 5, queries: [[1,2,100],[2,5,100],[3,4,100]]))
+
+
