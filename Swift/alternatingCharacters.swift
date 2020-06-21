@@ -30,3 +30,4 @@ return removeCount
 }
 
 print(alternatingCharacters(s: "mahimaaaaa"))
+
