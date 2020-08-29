@@ -34,8 +34,7 @@ class Solution {
         }
         return head
     }
-    func add(_ smallList: [Int], _ largeList: [Int]) -> [Int] {
-        let diff = largeList.count - smallList.count
+    func add(_ smallList: [Int], _ largeList: [Int]) -> [Int]{
         var sumArr: [Int] = []
         var carry = 0
         for (i,lVal) in largeList.enumerated() {
