@@ -26,7 +26,6 @@ func longestPalindrome(_ s: String) -> String {
         } else {
             dict[str] = [i]
         }
-        //print(dict)
     }
     return pal
 }
